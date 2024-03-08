@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./output.css">
+</head>
+<body>
+    <div id="navbar" class="relative flex flex-row items-center justify-between md:pl-20 pl-6 md:pr-20 pr-6 md:pt-3 pt-5 pb-7 md:gap-0 gap-10">
+        <div class="flex flex-row items-center justify-center gap-2">
+            <img src="../images/icon-menu.svg" class="md:hidden flex" onclick="openSideBar()" alt="">
+            <img src="../images/logo.svg" alt="">
+        </div>
+        <ul class="md:flex flex-row items-center justify-between gap-5 -ml-40 hidden ">
+            <li><a class="text-gray-500 hover:text-black relative inline-block group-hover:text-blue-500" href="">Collections  
+                <span class="absolute bottom-0 left-0 w-full h-1 bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+            </a>
+            </li>
+           
+            <li><a class="text-gray-500 hover:text-black relative inline-block group-hover:text-blue-500" href="">Men
+                <span class="absolute bottom-0 left-0 w-full h-1 bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+            </a></li>
+            <li><a class="text-gray-500 hover:text-black relative inline-block group-hover:text-blue-500" href="">Women
+                <span class="absolute bottom-0 left-0 w-full h-1 bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+            </a></li>
+            <li><a class="text-gray-500 hover:text-black relative inline-block group-hover:text-blue-500" href="">About
+                <span class="absolute bottom-0 left-0 w-full h-1 bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+            </a></li>
+            <li><a class="text-gray-500 hover:text-black relative inline-block group-hover:text-blue-500 " href="">Contact
+                <span class="absolute bottom-0 left-0 w-full h-1 bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 "></span>
+            </a></li>
+        </ul>
+       
+        <div class="flex flex-row items-center justify-center md:gap-16 gap-5">
+            <div id="cart" class="">
+                <img src="../images/icon-cart.svg" class="cursor-pointer relative h-8 w-9"  alt="">
+                <div id="cartBackground" class="  bg-orange-500  rounded-full hidden ease-in-out  items-center  justify-center  absolute z-50 ">
+                    <span id="cartCount" class=" hidden ">0</span>
+                </div>
+            </div>
+            <div>
+                <img class="h-10 cursor-pointer" src="../images/image-avatar.png" alt="">
+            </div>
+        </div>
+    </div>
+    <hr >
+    <div id="cartContent" class="h-44 w-80 shadow-lg absolute right-0 mr-14 top-14 z-50 bg-white hidden">
+        <p class="pl-3 pb-3 pt-2 font-bold">cart</p>
+        <hr>
+        <div class="flex flex-row items-center justify-center ">
+            <p id="padding">Your cart is empty.</p>
+        </div>
+        <div id="cartContentHome" class="flex flex-col items-center justify-center ">
+            <div class="flex  flex-row items-center justify-center">
+                <img class="img" src="../images/image-product-1-thumbnail.jpg" alt="">
+                <div>
+                   <p class="text-slate-400">Fall Limited Edition Sneakers</p>
+                   <p>$125.00<span class="multiply">x</span><span id="cartCountNumber" class="">0</span> <span id="total"></span></p>
+                </div>
+                <img id="delete" src="../images/icon-delete.svg" alt="">
+            </div>
+            <button class="button">Checkout</button>
+        </div>
+    </div>
+    <div id="sidebar" class="h-screen w-56 bg-white absolute z-50 left-0 top-0 pl-4 pt-4   flex-col items-start justify-start gap-7 hidden shadow-md">
+       <img src="../images/icon-close.svg" onclick="closeSideBar()"  alt="">
+       <ul class="flex flex-col items-start justify-start gap-7">
+        <li><a href="" class="font-bold text-xl">Collections</a></li>
+        <li><a href="" class="font-bold text-xl">Men</a></li>
+        <li><a href="" class="font-bold text-xl">Women</a></li>
+        <li><a href="" class="font-bold text-xl">About</a></li>
+        <li><a href="" class="font-bold text-xl">Contact</a></li>
+       </ul>
+    </div>
+    <div id="Main-content" class=" flex flex-row md:flex-col items-center justify-between pl-16 pr-32 pt-10 ">
+        <div id="image-container" class="flex flex-col items-center justify-center">
+          <div id="displayed-image " class="cursor-pointer" onclick="showTopImage()">
+            <img src="../images/image-product-1.jpg" id="imgOne" class="h-72 w-80 rounded-md" alt="">
+            <img src="../images/image-product-2.jpg" id="imgTwo" class="h-72 w-80 hidden rounded-md" alt="">
+            <img src="../images/image-product-3.jpg" id="imgThree" class="h-72 w-80 hidden rounded-md" alt="">
+            <img src="../images/image-product-4.jpg" id="imgFour" class="h-72 w-80 rounded-md   hidden" alt="">
+          </div>
+            <div id="fourImgs" class="flex flex-row items-center justify-center gap-2 pt-5">
+             <div onclick="displayImageOne()" class="relative overflow-hidden">
+                 <img src="../images/image-product-1-thumbnail.jpg" class="h-24 w-28 rounded-md  "  alt="">
+                 <div id="imgHoverOne" class="absolute inset-0  bg-white bg-opacity-0 transition duration-300 hover:bg-opacity-50 cursor-pointer rounded-md  border-4  border-orange-600"></div>
+             </div>
+             <div  onclick="displayImageTwo()" class="relative overflow-hidden">
+                 <img src="../images/image-product-2-thumbnail.jpg" class="h-24 w-28 rounded-md" alt="">
+                 <div id="imgHoverTwo" class="absolute inset-0 bg-white cursor-pointer  bg-opacity-0 transition duration-300 hover:bg-opacity-50 rounded-md "></div>
+             </div>
+             <div onclick="displayImageThree()" class="relative overflow-hidden">
+                 <img src="../images/image-product-3-thumbnail.jpg" class="h-24 w-28 rounded-md"  alt="">
+                 <div id="imgHoverThree"  class="absolute inset-0 bg-white bg-opacity-0 transition duration-300 hover:bg-opacity-50 cursor-pointer rounded-md "></div>
+             </div>
+             <div onclick="displayImageFour()" class="relative overflow-hidden">
+                 <img src="../images/image-product-4-thumbnail.jpg" class="h-24 w-28 rounded-md"   alt="">
+                 <div id="imgHoverFour"    class="absolute inset-0 bg-white bg-opacity-0 transition duration-300 hover:bg-opacity-50 cursor-pointer rounded-md "></div>
+             </div>
+            </div>
+        </div>
+        <div id="imgOnTop" class="absolute top-0  flex-col items-center justify-end z-50 h-screen w-screen  bg-stone-900 bg-opacity-50 hidden">
+    <img src="../images/cancel-svgrepo-com (1).svg" onclick="removeTopImage()" id="topCancel" class=" pb-1 cursor-pointer h-7" alt="">
+    <div id="imageContainerTwo">
+        <div id="displayedImageTwo" class="pl-10 pb-5 flex flex-row items-center justify-center">
+            <div id="previousIcon" onclick="prevImage()" class="absolute cursor-pointer left-96 z-50 h-10 w-12 bg-white flex items-center justify-center rounded-full">
+                <img src="../images/icon-previous.svg" alt="">
+            </div>
+            <img src="../images/image-product-1.jpg" id="imgTopOne" class="relative h-96 w-96 rounded-md" alt="">
+            <img src="../images/image-product-2.jpg" id="imgTopTwo" class="relative h-96 w-96 hidden rounded-md" alt="">
+            <img src="../images/image-product-3.jpg" id="imgTopThree" class="relative h-96 w-96 hidden rounded-md" alt="">
+            <img src="../images/image-product-4.jpg" id="imgTopFour" class="relative h-96 w-96 rounded-md   hidden" alt="">
+            <div id="nextIcon" onclick="nextImage()" class="absolute cursor-pointer right-80 mr-7 h-10 w-12 bg-white flex items-center justify-center rounded-full shadow-md">
+                <img src="../images/icon-next.svg" alt="">
+            </div>
+        </div>
+        <div id="LittleImages" class="flex flex-row items-center justify-center gap-2 mb-2 ml-8 ">
+            <div onclick="updateImage(0)" class="relative overflow-hidden">
+                <img src="../images/image-product-1-thumbnail.jpg" class="slider-image h-20 w-20 rounded-md  "  alt="">
+                <div id="imgHoverTopOne" class="absolute inset-0  bg-white bg-opacity-0 transition duration-300 hover:bg-opacity-50 cursor-pointer rounded-md  "></div>
+            </div>
+            <div  onclick="updateImage(1)" class="relative overflow-hidden">
+                <img src="../images/image-product-2-thumbnail.jpg" class="slider-image h-20 w-20 rounded-md" alt="">
+                <div id="imgHoverTopTwo" class="absolute inset-0 bg-white cursor-pointer  bg-opacity-0 transition duration-300 hover:bg-opacity-50 rounded-md "></div>
+            </div>
+            <div onclick="updateImage(2)" class="relative overflow-hidden">
+                <img src="../images/image-product-3-thumbnail.jpg" class="slider-image h-20 w-20 rounded-md"  alt="">
+                <div id="imgHoverTopThree"  class="absolute inset-0 bg-white bg-opacity-0 transition duration-300 hover:bg-opacity-50 cursor-pointer rounded-md "></div>
+            </div>
+            <div onclick="updateImage(3)" class="relative overflow-hidden">
+                <img src="../images/image-product-4-thumbnail.jpg" class="slider-image h-20 w-20 rounded-md"   alt="">
+                <div id="imgHoverTopFour"    class="absolute inset-0 bg-white bg-opacity-0 transition duration-300 hover:bg-opacity-50 cursor-pointer rounded-md "></div>
+            </div>
+        </div>
+    </div>
+   
+   <div id="imgOnTop" class="absolute top-0 ml-0  flex-col items-center justify-center z-50  bg-stone-900 bg-opacity-50  ">
+    <img src="../images/cancel-svgrepo-com.svg" onclick="removeTopImage()" id="topCancel" class=" pb-1 cursor-pointer h-7" alt="">
+    <div id="imageContainerTwo">
+        <div id="displayedImageTwo" class="pl-10 pb-5 flex flex-row items-center justify-center">
+            <div id="previousIcon" onclick="prevImage()" class="absolute cursor-pointer left-96 z-50 h-10 w-12 bg-white flex items-center justify-center rounded-full">
+                <img src="../images/icon-previous.svg" alt="">
+            </div>
+            <img src="../images/image-product-1.jpg" id="imgTopOne" class="relative h-96 w-96 rounded-md" alt="">
+            <img src="../images/image-product-2.jpg" id="imgTopTwo" class="relative h-96 w-96 hidden rounded-md" alt="">
+            <img src="../images/image-product-3.jpg" id="imgTopThree" class="relative h-96 w-96 hidden rounded-md" alt="">
+            <img src="../images/image-product-4.jpg" id="imgTopFour" class="relative h-96 w-96 rounded-md   hidden" alt="">
+            <div id="nextIcon" onclick="nextImage()" class="absolute cursor-pointer right-80 mr-7 h-10 w-12 bg-white flex items-center justify-center rounded-full shadow-md">
+                <img src="../images/icon-next.svg" alt="">
+            </div>
+        </div>
+        <div id="LittleImages" class="flex flex-row items-center justify-center gap-2 mb-2 ml-8 ">
+            <div onclick="updateImage(0)" class="relative overflow-hidden">
+                <img src="../images/image-product-1-thumbnail.jpg" class="slider-image h-20 w-20 rounded-md  "  alt="">
+                <div id="imgHoverTopOne" class="absolute inset-0  bg-white bg-opacity-0 transition duration-300 hover:bg-opacity-50 cursor-pointer rounded-md  "></div>
+            </div>
+            <div  onclick="updateImage(1)" class="relative overflow-hidden">
+                <img src="../images/image-product-2-thumbnail.jpg" class="slider-image h-20 w-20 rounded-md" alt="">
+                <div id="imgHoverTopTwo" class="absolute inset-0 bg-white cursor-pointer  bg-opacity-0 transition duration-300 hover:bg-opacity-50 rounded-md "></div>
+            </div>
+            <div onclick="updateImage(2)" class="relative overflow-hidden">
+                <img src="../images/image-product-3-thumbnail.jpg" class="slider-image h-20 w-20 rounded-md"  alt="">
+                <div id="imgHoverTopThree"  class="absolute inset-0 bg-white bg-opacity-0 transition duration-300 hover:bg-opacity-50 cursor-pointer rounded-md "></div>
+            </div>
+            <div onclick="updateImage(3)" class="relative overflow-hidden">
+                <img src="../images/image-product-4-thumbnail.jpg" class="slider-image h-20 w-20 rounded-md"   alt="">
+                <div id="imgHoverTopFour"    class="absolute inset-0 bg-white bg-opacity-0 transition duration-300 hover:bg-opacity-50 cursor-pointer rounded-md "></div>
+            </div>
+        </div>
+    </div>
+   </div> 
+
+</div> 
+
+<div id="displayedImageTwo" class="flex flex-row items-center justify-center md:hidden w-screen relative ">
+    <div id="previousIcon" onclick="prevImageMobile()" class="absolute  cursor-pointer  h-10 w-12 bg-white flex items-center justify-center rounded-full">
+        <img src="../images/icon-previous.svg" alt="">
+    </div>
+    <img src="../images/image-product-1.jpg" id="imgTopOneMobile" class="relative h-96 w-96  rounded-md pl-10 " alt="">
+    <img src="../images/image-product-2.jpg" id="imgTopTwoMobile" class="relative h-96 w-96 hidden rounded-md pl-10" alt="">
+    <img src="../images/image-product-3.jpg" id="imgTopThreeMobile" class="relative h-96 w-96 hidden rounded-md pl-10" alt="">
+    <img src="../images/image-product-4.jpg" id="imgTopFourMobile" class="relative h-96 w-96 rounded-md   hidden pl-10" alt="">
+    <div id="nextIcon" onclick="nextImageMobile()" class="absolute cursor-pointer  h-10 w-12 bg-white flex items-center justify-center rounded-full shadow-md">
+        <img src="../images/icon-next.svg" alt="">
+    </div>
+</div>
+
+
+
+
+<div id="contents" class="flex flex-col items-start justify-center left-7  ">
+    <p class="text-orange-500 font-bold">SNEAKER COMPANY</p>
+    <h1 class="font-bold text-4xl  pb-5">Fall Limited Edition <br> Sneakers</h1>
+    <p class="window text-slate-400 pb-3">This low-profile sneakers are your perfect casuel wear <br> companion Featuring a durable robber outer sole, they'll <br>
+     withstand everything the weather can offer. </p>
+     <p id="mobile" class=" text-slate-400 pb-3 hidden">This low-profile sneakers are your perfect <br> casuel wear  companion Featuring a durable <br> robber outer sole, they'll 
+        withstand everything <br> the weather can offer. </p>
+    <div id="mobileAmount" class=" flex flex-col  items-start justify-start">
+        <h1 class="h1 font-bold text-3xl flex flex-row items-center justify-start">$125.00 <span class="text-sm bg-orange-300 bg-opacity-20 text-orange-600 pl-1 pr-1 rounded-sm ml-3">50%</span></h1>
+        <p><del class="text-slate-400 font-bold">$250.00</del></p>
+    </div>
+    <div id="buttons" class="flex flex-row items-center justify-start gap-6">
+        <div id="subButton" class=" bg-slate-400 flex flex-row items-center justify-center  h-10 w-44   bg-opacity-20 ">
+            <button id="subtract" class=""><img src="../images/icon-minus.svg" alt=""></button>
+            <span id="quantity" class="font-bold">0</span>
+            <button id="add" class="pr-3"><img src="../images/icon-plus.svg" alt=""></button>
+        </div>
+        <button id="addToCart" class=" flex flex-row items-center justify-center bg-orange-500 h-10 w-44 gap-6 text-white"><svg viewBox="0 0 24 24" class="h-9 w-9" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M1.28869 2.76279C1.41968 2.36983 1.84442 2.15746 2.23737 2.28845L2.50229 2.37675C2.51549 2.38115 2.52864 2.38554 2.54176 2.38991C3.16813 2.59867 3.69746 2.7751 4.11369 2.96873C4.55613 3.17456 4.94002 3.42965 5.23112 3.83352C5.52221 4.2374 5.64282 4.68226 5.69817 5.16708C5.75025 5.62318 5.75023 6.18114 5.7502 6.84139L5.7502 9.49996C5.7502 10.9354 5.7518 11.9365 5.85335 12.6918C5.952 13.4256 6.13245 13.8142 6.40921 14.091C6.68598 14.3677 7.07455 14.5482 7.80832 14.6468C8.56367 14.7484 9.56479 14.75 11.0002 14.75H18.0002C18.4144 14.75 18.7502 15.0857 18.7502 15.5C18.7502 15.9142 18.4144 16.25 18.0002 16.25H10.9453C9.57774 16.25 8.47542 16.25 7.60845 16.1334C6.70834 16.0124 5.95047 15.7535 5.34855 15.1516C4.74664 14.5497 4.48774 13.7918 4.36673 12.8917C4.25017 12.0247 4.25018 10.9224 4.2502 9.55484L4.2502 6.883C4.2502 6.17 4.24907 5.69823 4.20785 5.33722C4.16883 4.99538 4.10068 4.83049 4.01426 4.71059C3.92784 4.59069 3.79296 4.47389 3.481 4.32877C3.15155 4.17551 2.70435 4.02524 2.02794 3.79978L1.76303 3.71147C1.37008 3.58049 1.15771 3.15575 1.28869 2.76279Z" fill="#fcfcfd"></path> <path opacity="0.5" d="M5.74512 6C5.75008 6.25912 5.75008 6.53957 5.75007 6.8414L5.75006 9.5C5.75006 10.9354 5.75166 11.9365 5.85321 12.6919C5.86803 12.8021 5.8847 12.9046 5.90326 13H16.0221C16.9815 13 17.4612 13 17.8369 12.7523C18.2126 12.5045 18.4016 12.0636 18.7795 11.1818L19.2081 10.1818C20.0176 8.29294 20.4223 7.34853 19.9777 6.67426C19.5331 6 18.5056 6 16.4507 6H5.74512Z" fill="#fcfcfd"></path> <path d="M7.5 18C8.32843 18 9 18.6716 9 19.5C9 20.3284 8.32843 21 7.5 21C6.67157 21 6 20.3284 6 19.5C6 18.6716 6.67157 18 7.5 18Z" fill="#fcfcfd"></path> <path d="M18 19.5001C18 18.6716 17.3284 18.0001 16.5 18.0001C15.6716 18.0001 15 18.6716 15 19.5001C15 20.3285 15.6716 21.0001 16.5 21.0001C17.3284 21.0001 18 20.3285 18 19.5001Z" fill="#fcfcfd"></path> </g></svg>add To Cart</button>
+    </div>
+</div>
+</div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
